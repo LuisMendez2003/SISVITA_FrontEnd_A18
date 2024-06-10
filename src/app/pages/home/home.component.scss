@@ -1,0 +1,45 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 8rem;
+    height: 81.5vh;
+}
+
+.text {
+    font-family: 'Fredoka', sans-serif;
+    font-size: larger;
+    flex-direction: column; /* Apilar elementos verticalmente */
+    justify-content: center; /* Centrar elementos verticalmente */
+    align-items: flex-start; /* Centrar elementos horizontalmente */
+    text-align: center; /* Centrar el texto */
+    flex: 1;
+}
+
+.text h1{
+    margin: 4rem 0;
+}
+
+.text h2{
+    margin: 0.5rem 0;
+    font-weight:300;
+}
+
+.Unete{
+    color: white;
+    background-color: #547AFF;
+    border-radius: 20px;
+    padding: 8px 30px;
+    display: inline-block;
+}
+
+.image {
+    display: flex;
+    justify-content: center; /* Centrar imagen horizontalmente */
+    align-items: center; /* Centrar imagen verticalmente */
+    
+    img {
+        height: 60vh; /* Ajustar la altura de la imagen */
+        object-fit: cover; /* Asegurar que la imagen se ajuste correctamente */
+    }
+}

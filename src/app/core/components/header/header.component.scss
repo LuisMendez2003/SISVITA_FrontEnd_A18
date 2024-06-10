@@ -1,0 +1,33 @@
+.container {
+    background-color: #AAE4FD;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh; /* El contenedor ocupa el 10% de la altura de la pantalla */
+    padding: 0 1.5rem; /* Añadir padding para que los elementos no toquen los bordes del contenedor */
+    overflow: hidden; /* Ocultar cualquier contenido que exceda el contenedor */
+}
+
+.title {
+    flex: 1; /* Ocupa todo el espacio disponible a la izquierda */
+    text-align: left;
+
+    span{
+        margin-left: 40px;
+        font-size: xx-large;
+        font-family: 'Fredoka', sans-serif;
+        font-weight:900;
+        letter-spacing: 1.5rem;
+    }
+}
+
+.icons {
+    display: flex; /* Utilizar flexbox para los íconos */
+    align-items: center;
+    
+    img {
+        margin-left: 2rem; /* Añadir margen izquierdo a las imágenes */
+        max-height: 50%; /* Asegurar que las imágenes no excedan la altura del contenedor */
+        height: 8.5vh;
+    }
+}
