@@ -4,11 +4,12 @@ import { routes } from './app.routes';
 import { TabsComponent } from './core/components/tabs/tabs.component';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './core/components/header/header.component';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   standalone: true, //IMPORTANTE COLOCAR QUE ES STANDALON
-  imports: [RouterOutlet, CommonModule, TabsComponent, HeaderComponent], //IMPORTAR EL COMMONMODULE Y EL ROUTER OUTLET y los standalones
+  imports: [RouterOutlet, CommonModule, TabsComponent, HeaderComponent,FormsModule], //IMPORTAR EL COMMONMODULE Y EL ROUTER OUTLET y los standalones
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
