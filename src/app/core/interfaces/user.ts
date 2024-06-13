@@ -1,4 +1,4 @@
-interface User{
+export interface User{
     role: string,
     password: string,
     last_name: string,

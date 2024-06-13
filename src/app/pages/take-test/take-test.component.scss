@@ -1,0 +1,33 @@
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 81.5vh;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;  
+    align-items: center;
+
+
+    height: 60vh; /* La misma altura que la imagen */
+    width: 50vw; /* Ajustar el ancho del box según tus necesidades */
+    
+    background-color: white; /* Color de fondo del box */
+    border-radius: 15px; /* Esquinas redondeadas */
+    margin: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+
+    text-align: center; /* Alineación del texto al centro */
+    
+}
+
+h1 {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 2.5em;
+    margin-top: 10px;
+    margin-bottom: 40px;
+}

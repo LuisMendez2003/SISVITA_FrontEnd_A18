@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./login.component.scss'],
   providers: [AuthService]
 })
+
 export class LoginComponent { 
 
   email: string = '';

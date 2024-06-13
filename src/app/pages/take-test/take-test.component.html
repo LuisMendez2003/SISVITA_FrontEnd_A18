@@ -1,0 +1,18 @@
+<app-tabs></app-tabs>
+
+<div class="container">
+  <div class="box">
+    <h1>Nombre del test</h1>
+    <form>
+      <div *ngFor="let pregunta of preguntas">
+        <label>{{ pregunta.texto }}</label>
+        <select>
+          <option value="" disabled selected>Escoge tu respuesta</option>
+          <option *ngFor="let alternativa of alternativas[pregunta.id_pregunta]" [value]="alternativa.id_alternativa">
+            {{ alternativa.texto }}
+          </option>
+        </select>
+      </div>
+    </form>
+  </div>
+</div>
