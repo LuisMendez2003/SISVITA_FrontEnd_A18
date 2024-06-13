@@ -21,9 +21,9 @@ export class StudenttestComponent implements OnInit {
 
   ngOnInit(): void {
     this.testService.getTests().subscribe(
-      (data) => {
-        this.tests = data;
-        console.log('Fetched tests:', data);
+      (response) => {
+        this.tests = response.data;
+        console.log('Fetched tests:', this.tests);
       },
       (error) => {
         console.error('Error fetching tests', error);
