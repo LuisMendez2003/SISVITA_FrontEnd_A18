@@ -30,8 +30,7 @@ export class StudenttestComponent implements OnInit {
       }
     );
   }
-  startTest() {
-    // Redirige a la página de realización del test
-    this.router.navigate(['/realizar-test']);
+  startTest(id_test: number) {
+    this.router.navigate(['/take-test',id_test]);
   }
 }

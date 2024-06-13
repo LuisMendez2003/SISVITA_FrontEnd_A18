@@ -13,7 +13,6 @@ export class HomeComponent {
   }
 
   goTo(goTo:string){
-    //Go to a page
     this.router.navigate([goTo])
   }
 }

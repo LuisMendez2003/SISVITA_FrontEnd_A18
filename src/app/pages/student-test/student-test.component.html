@@ -7,9 +7,9 @@
   </div>
   <div class="right-panels">
     <div class="right-panel top" *ngFor="let test of tests">
-      <h3>{{ test.nombre }}</h3> <!-- Suponiendo que los tests tienen una propiedad 'name' -->
+      <h3>{{ test.nombre }}</h3>
       <img src="images/testS.png" alt="Instructions Image">
-      <button (click)="startTest()">Iniciar</button>
+      <button (click)="startTest(test.id_test)">Iniciar</button>
     </div>
   </div>
 </div>

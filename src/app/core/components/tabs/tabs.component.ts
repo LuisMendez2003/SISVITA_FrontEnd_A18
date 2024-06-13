@@ -14,7 +14,6 @@ export class TabsComponent {
   }
 
   goTo(goTo:string){
-    //Go to home
     this.router.navigate([goTo])
   }
 

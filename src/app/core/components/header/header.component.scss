@@ -11,6 +11,7 @@
 .title {
     flex: 1; /* Ocupa todo el espacio disponible a la izquierda */
     text-align: left;
+    cursor: pointer; /* Cursor */
 
     span{
         margin-left: 40px;

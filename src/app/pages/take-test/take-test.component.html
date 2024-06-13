@@ -1,18 +1,21 @@
-<app-tabs></app-tabs>
+<app-tabs-student></app-tabs-student>
 
 <div class="container">
   <div class="box">
-    <h1>Nombre del test</h1>
-    <form>
-      <div *ngFor="let pregunta of preguntas">
+    <h1>{{ nombreTest }}</h1>
+    <form (ngSubmit)="onSubmit()">
+      <div *ngFor="let pregunta of preguntas" class="form-group">
         <label>{{ pregunta.texto }}</label>
-        <select>
+        <select class="select" [(ngModel)]="respuestasSeleccionadas[pregunta.id_pregunta]" name="respuesta-{{pregunta.id_pregunta}}">
           <option value="" disabled selected>Escoge tu respuesta</option>
           <option *ngFor="let alternativa of alternativas[pregunta.id_pregunta]" [value]="alternativa.id_alternativa">
             {{ alternativa.texto }}
           </option>
         </select>
       </div>
+      
+      <!-- Botón de enviar -->
+      <button type="submit">Enviar</button>
     </form>
   </div>
 </div>

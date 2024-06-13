@@ -9,7 +9,7 @@
   }
   
   .left-panel {
-    width: 80%; /* Ajusta el ancho del panel de instrucciones */
+    width: 80%; 
     margin-bottom: 2rem;
     padding: 2rem;
     background-color: #ffffff;
@@ -31,15 +31,15 @@
   }
   
   .right-panels {
-    width: 80%; /* Asegurar que los paneles de la derecha tengan el mismo ancho que el panel de instrucciones */
+    width: 80%; 
     display: flex;
-    flex-wrap: wrap; /* Permitir que los paneles se envuelvan a la siguiente fila */
+    flex-wrap: wrap; 
     gap: 1rem;
     box-sizing: border-box;
   }
   
   .right-panel {
-    flex: 1 1 20%; /* Ajustar el ancho del panel para que ocupe el 20% y pueda envolver */
+    flex: 1 1 20%; 
     max-width: 20%;
     display: flex;
     flex-direction: column;
@@ -66,5 +66,9 @@
     border: none;
     border-radius: 20px;
     cursor: pointer;
+  }
+  
+  h3{
+    font-family: 'Fredoka', sans-serif;
   }
   

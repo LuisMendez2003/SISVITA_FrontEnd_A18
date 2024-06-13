@@ -5,12 +5,13 @@
     align-items: center;
     height: 8.5vh; /* El contenedor ocupa el 10% de la altura de la pantalla */
     padding: 0 1.5rem; /* Añadir padding para que los elementos no toquen los bordes del contenedor */
-    overflow: hidden; /* Ocultar cualquier contenido que exceda el contenedor */
+    overflow: hidden;
 }
 
 .title {
     flex: 1; /* Ocupa todo el espacio disponible a la izquierda */
     text-align: left;
+    cursor: pointer; /* Cursor */
 
     span{
         color: white;

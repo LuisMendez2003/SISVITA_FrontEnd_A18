@@ -1,4 +1,4 @@
-.container{
+.container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -8,26 +8,74 @@
 .box {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;  
+    justify-content: space-between;  /* Alineación de los elementos de arriba hacia abajo */
     align-items: center;
 
-
-    height: 60vh; /* La misma altura que la imagen */
-    width: 50vw; /* Ajustar el ancho del box según tus necesidades */
+    min-height: 60vh; /* La misma altura que la imagen */
+    width: 40vw; /* Ajustar el ancho del box según tus necesidades */
     
     background-color: white; /* Color de fondo del box */
     border-radius: 15px; /* Esquinas redondeadas */
     margin: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
-
-    text-align: center; /* Alineación del texto al centro */
     
+
 }
 
 h1 {
     font-family: 'Fredoka', sans-serif;
     font-size: 2.5em;
     margin-top: 10px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    font-size: large;
+    flex: 1; /* Para que ocupe todo el espacio disponible verticalmente */
+}
+
+.form-group {
+    margin-bottom: 20px; /* Espaciado entre grupos de elementos */
+}
+
+label {
+    font-family: 'Inter', sans-serif;
+    align-self: flex-start;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.select {
+    font-family: 'Fredoka', sans-serif;
+    margin: 10px;
+    width: 100%; /* Ancho completo del select */
+    padding: 10px; /* Espaciado interno */
+    border: 1px solid #ccc; /* Borde */
+    border-radius: 5px; /* Esquinas redondeadas */
+}
+
+button {
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 600;
+    width: 100%; /* Ancho completo del botón */
+    padding: 10px; /* Espaciado interno */
+    background-color: #547AFF; /* Color de fondo del botón */
+    color: white; /* Color del texto */
+    border: none; /* Borde */
+    border-radius: 10px; /* Esquinas redondeadas */
+    cursor: pointer; /* Cursor */
+    font-size: large; /* Tamaño de fuente */
+    margin-top: 50px; /* Alinear al final del contenedor */
+}
+
+button:hover {
+    background-color: #3c5da8; /* Color de fondo al pasar el mouse */
+}
+
+button:disabled {
+    background-color: #ccc; /* Color de fondo cuando está deshabilitado */
+    cursor: not-allowed; /* Cursor cuando está deshabilitado */
 }
