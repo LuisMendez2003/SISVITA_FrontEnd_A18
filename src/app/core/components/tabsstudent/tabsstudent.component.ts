@@ -2,20 +2,16 @@ import { Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-tabs',
+  selector: 'app-tabs-student',
   standalone: true,
   imports: [RouterModule],
   templateUrl: './tabsstudent.component.html',
-  styleUrl: './tabsstudent.component.scss'
+  styleUrls: ['./tabsstudent.component.scss']
 })
-export class TabsComponent {
+export class TabsComponentstudent {
+  constructor(private router: Router) {}
 
-  constructor(private router: Router){
+  goTo(route: string) {
+    this.router.navigate([route]);
   }
-
-  goTo(goTo:string){
-    //Go to home
-    this.router.navigate([goTo])
-  }
-
 }

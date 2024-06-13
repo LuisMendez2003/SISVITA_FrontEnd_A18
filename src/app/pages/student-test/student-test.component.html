@@ -1,4 +1,4 @@
-<app-tabs></app-tabs>
+<app-tabs-student></app-tabs-student>
 
 <div class="container">
   <div class="left-panel">
@@ -6,11 +6,8 @@
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent urna nulla, consectetur a mollis in, vestibulum vitae tellus. Vivamus aliquam pretium molestie.</p>
   </div>
   <div class="right-panels">
-    <div class="right-panel top">
-      <img src="images/testS.png" alt="Instructions Image">
-      <button (click)="startTest()">Iniciar</button>
-    </div>
-    <div class="right-panel bottom">
+    <div class="right-panel top" *ngFor="let test of tests">
+      <h3>{{ test.nombre }}</h3> <!-- Suponiendo que los tests tienen una propiedad 'name' -->
       <img src="images/testS.png" alt="Instructions Image">
       <button (click)="startTest()">Iniciar</button>
     </div>
