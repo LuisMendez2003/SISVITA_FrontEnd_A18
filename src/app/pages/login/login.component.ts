@@ -26,6 +26,7 @@ export class LoginComponent {
     this.authService.login(this.email, this.contrasena).subscribe(
       (response) =>{
         console.log('Inicio de sesión exitoso',response);
+        this.router.navigate(['/student-test']);
       },
       (error) =>{
         console.log('Error',error);
