@@ -60,7 +60,6 @@ export class TakeTestComponent implements OnInit {
       
       this.loadTestName(id_test);
 
-      // servicio para obtener las preguntas filtradas por id_test
       this.preguntasService.getByTest(id_test).subscribe(
         (data) => {
 
@@ -104,19 +103,16 @@ export class TakeTestComponent implements OnInit {
   onSubmit() {
 
     const realizacionTest: RealizacionTest = {
-      id_test: this.route.snapshot.params['id'], // Obtener el ID del test de la ruta
+      id_test: this.route.snapshot.params['id'],
       id_estudiante: this.id_estudiante,
       fecha: new Date() // Fecha actual
     };
-
-    console.log(realizacionTest.id_test, realizacionTest.id_estudiante, realizacionTest.fecha);
 
     // Enviar el objeto RealizacionTest
     this.savetestService.realizacionTest(realizacionTest.id_test, realizacionTest.id_estudiante, realizacionTest.fecha).subscribe(
       (response) => {
         console.log('RealizacionTest guardado correctamente:', response);
         // Guardar las respuestas de las preguntas
-        console.log('bromitahuevo',response.data.id_realizaciontest);
         this.guardarRespuestas(response.data.id_realizaciontest);
       },
       (error) => {
@@ -126,7 +122,6 @@ export class TakeTestComponent implements OnInit {
   }
 
   guardarRespuestas(id_realizaciontest: number): void {
-    console.log('bromitahuevo en guardar',id_realizaciontest);
     Object.keys(this.respuestasSeleccionadas).forEach(preguntaId => {
       const idAlternativa = this.respuestasSeleccionadas[parseInt(preguntaId)];
 
@@ -146,5 +141,7 @@ export class TakeTestComponent implements OnInit {
         );
       }
     });
+
+    this.router.navigate(['/student-test']);
   }
 }

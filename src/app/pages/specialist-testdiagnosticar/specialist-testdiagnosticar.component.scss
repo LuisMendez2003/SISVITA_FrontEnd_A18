@@ -5,6 +5,7 @@
     width: 100%;
     padding: 2rem;
     background-color: #fcf1f1;
+    font-family: 'Fredoka', sans-serif;
   }
   
   .card {
@@ -13,6 +14,7 @@
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 2rem;
+    margin-bottom: 1rem;
   }
   
   .card-header {
@@ -65,9 +67,27 @@
     cursor: pointer;
     text-transform: uppercase;
     font-family: 'Fredoka', sans-serif;
+    
   }
   
   .btn:hover {
     background-color: #4169e1;
   }
   
+  .level-text {
+    font-weight: bold;
+    margin-right: 0.5rem; /* Ajustar el espacio entre el texto fijo y el dinámico */
+  }
+  
+  /* Agregar estilos para el valor dinámico */
+  .level-green {
+    color: green;
+  }
+  
+  .level-yellow {
+    color: orange;
+  }
+  
+  .level-red {
+    color: red;
+  }

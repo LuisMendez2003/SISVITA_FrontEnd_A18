@@ -12,6 +12,17 @@
         <p>Fecha: {{ realizacion.fecha | date:'shortDate' }}</p>
         <p>ID Test: {{ realizacion.id_test }}</p>
         <p>Nombre del Test: {{ realizacion.test.nombre }}</p>
+        <p>Puntaje: {{ realizacion.puntaje }}</p>
+        <p>
+          <strong class="level-text">Nivel:</strong>
+          <span [ngClass]="{
+            'level-green': realizacion.nivel === 'Leve',
+            'level-yellow': realizacion.nivel === 'Moderado',
+            'level-red': realizacion.nivel === 'Grave'
+          }">
+            {{ realizacion.nivel }}
+          </span>
+        </p>
       </div>
       <div class="card-footer">
         <button class="btn-details" (click)="viewRealizacionTest(realizacion.id_realizaciontest)">Ver detalles</button>

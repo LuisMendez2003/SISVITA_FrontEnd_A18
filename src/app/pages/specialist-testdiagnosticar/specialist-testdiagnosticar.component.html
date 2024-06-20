@@ -1,4 +1,3 @@
-
 <app-tabsspecialist></app-tabsspecialist>
 
 <div class="container">
@@ -12,12 +11,27 @@
         <p><strong>Apellidos:</strong> {{ respuestas[0]?.realizacionTest?.estudiante?.usuario?.apellido }}</p>
         <p><strong>Nombres:</strong> {{ respuestas[0]?.realizacionTest?.estudiante?.usuario?.nombre }}</p>
         <p><strong>Código:</strong> {{ respuestas[0]?.realizacionTest?.estudiante?.id_estudiante }}</p>
+        <p>
+          <strong class="level-text">Nivel:</strong>
+          <span [ngClass]="{
+            'level-green': respuestas[0]?.realizacionTest?.nivel === 'Leve',
+            'level-yellow': respuestas[0]?.realizacionTest?.nivel === 'Moderado',
+            'level-red': respuestas[0]?.realizacionTest?.nivel === 'Grave'
+          }">
+            {{ respuestas[0]?.realizacionTest?.nivel }}
+          </span>
+        </p>
       </div>
       <div class="treatment">
         <h4>Tratamiento:</h4>
         <textarea [(ngModel)]="tratamiento"></textarea>
       </div>
-      <div class="appointment">
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <form (ngSubmit)="finalizar()" #formulario="ngForm" class="appointment" >
         <h4>Solicitar cita:</h4>
         <label>
           <input type="radio" name="solicitarCita" [(ngModel)]="solicitarCita" value="si"> Sí
@@ -25,11 +39,13 @@
         <label>
           <input type="radio" name="solicitarCita" [(ngModel)]="solicitarCita" value="no"> No
         </label>
-      </div>
+        <button class="btn" type="submit">Enviar</button>
+      </form>
     </div>
     <div class="card-footer">
       <button class="btn" (click)="volver()">Volver</button>
       <button class="btn" (click)="finalizar()">Finalizar</button>
     </div>
   </div>
+
 </div>

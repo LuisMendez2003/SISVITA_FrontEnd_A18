@@ -29,14 +29,15 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
     text-align: center;
+    
+    font-family: 'Fredoka', sans-serif;
   }
   
   .card-header {
-    background-color: #007bff;
+    background-color: #547AFF;
     color: white;
     padding: 1rem;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
+    border-radius: 8px;
     width: 100%;
   }
   
@@ -64,5 +65,23 @@
   
   .btn-details:hover {
     background-color: #0056b3;
+  }
+
+  .level-text {
+    font-weight: bold;
+    margin-right: 0.5rem; /* Ajustar el espacio entre el texto fijo y el dinámico */
+  }
+  
+  /* Agregar estilos para el valor dinámico */
+  .level-green {
+    color: green;
+  }
+  
+  .level-yellow {
+    color: orange;
+  }
+  
+  .level-red {
+    color: red;
   }
   

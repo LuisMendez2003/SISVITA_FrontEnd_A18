@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { RespuestaService } from '../../core/services/respuestas.service'; 
 import { TabsspecialistComponent } from '../../core/components/tabsspecialist/tabsspecialist.component';
@@ -20,7 +20,7 @@ export class SpecialistTestdiagnosticarComponent implements OnInit {
   tratamiento: string = '';
   solicitarCita: string = '';
 
-  constructor(private route: ActivatedRoute, private router: Router, private respuestaService: RespuestaService) {}
+  constructor(private route: ActivatedRoute, private router: Router, private respuestaService: RespuestaService, private http: HttpClient) {}
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -51,13 +51,28 @@ export class SpecialistTestdiagnosticarComponent implements OnInit {
   }
 
   finalizar(): void {
-    if (this.tratamiento && this.solicitarCita) {
+    if (this.tratamiento) {
       // Lógica para finalizar, como guardar los datos ingresados
       console.log('Tratamiento:', this.tratamiento);
+      if(this.solicitarCita === 'si'){
+        this.enviarEmail();
+      }
       console.log('Solicitar cita:', this.solicitarCita);
       this.router.navigate(['/specialist-test']); // Navegar a la página de specialist-test
     } else {
-      alert('Por favor, complete el tratamiento y seleccione una opción para solicitar cita.');
+      alert('Por favor, complete el tratamiento.');
     }
+  }
+
+  enviarEmail(): void {
+    console.log('Se ha solicitado una cita.');
+
+    const destino = this.respuestas[0]?.realizacionTest?.estudiante?.usuario?.email;
+    const asunto = 'Invitacion a Agendar Cita';
+    const contenido = `Estimado ${this.respuestas[0]?.realizacionTest?.estudiante?.usuario?.nombre}, se le solicita agendar una cita.`;
+
+    const emailData = {destino: destino, asunto: asunto, contenido: contenido};
+    console.log('Datos del Correo: ', emailData);
+  
   }
 }
