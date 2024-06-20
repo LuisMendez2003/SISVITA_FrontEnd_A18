@@ -5,6 +5,8 @@ import { SigninComponent } from './pages/signin/signin.component';
 import { StudenttestComponent} from './pages/student-test/student-test.component';
 import { TakeTestComponent } from './pages/take-test/take-test.component';
 import { SpecialistTestComponent } from './pages/specialist-test/specialist-test.component';
+import { SpecialistVistatestComponent } from './pages/specialist-vistatest/specialist-vistatest.component';
+import { SpecialistTestdiagnosticarComponent } from './pages/specialist-testdiagnosticar/specialist-testdiagnosticar.component';
 
 export const routes: Routes = [
     { path: "", component: HomeComponent },
@@ -12,5 +14,7 @@ export const routes: Routes = [
     { path: "signin", component: SigninComponent},
     { path: 'student-test', component: StudenttestComponent },
     { path: "take-test/:id", component: TakeTestComponent},
-    { path: "specialist-test", component: SpecialistTestComponent}
+    { path: "specialist-test", component: SpecialistTestComponent},
+    { path: 'specialist-vistatest/:id', component: SpecialistVistatestComponent },
+    { path: 'specialist-testdiagnosticar/:id',component: SpecialistTestdiagnosticarComponent}
 ];
