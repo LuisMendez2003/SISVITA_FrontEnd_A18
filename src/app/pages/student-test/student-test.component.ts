@@ -4,6 +4,7 @@ import { TabsComponentstudent} from '../../core/components/tabsstudent/tabsstude
 import { TestService } from '../../core/services/test.service';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { AuthStateService } from '../../core/services/auth.service';
 
 @Component({
   selector: 'app-student-test',
@@ -17,7 +18,7 @@ import { CommonModule } from '@angular/common';
 export class StudenttestComponent implements OnInit {
   tests: any[] = [];
 
-  constructor(private router: Router, private testService: TestService) {}
+  constructor(private router: Router, private testService: TestService, private authStateService: AuthStateService) {}
 
   ngOnInit(): void {
     this.testService.getTests().subscribe(

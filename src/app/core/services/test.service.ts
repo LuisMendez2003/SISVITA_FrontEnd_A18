@@ -3,9 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class TestService {
   private baseUrl = 'https://dsw-exposicionparcial-crud.onrender.com';
 
@@ -21,3 +19,4 @@ export class TestService {
     );
   }
 }
+

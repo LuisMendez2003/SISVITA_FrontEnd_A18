@@ -15,7 +15,7 @@ export class SavetestService {
     return this.http.post(`${this.baseUrl}/realizaciontest`, { id_test, id_estudiante, fecha });
   }
 
-  respuesta(id_realizacionTest: number, alternativa: number): Observable<any> {
-    return this.http.post(`${this.baseUrl}/respuesta`, { id_realizacionTest, alternativa });
+  respuesta(id_realizaciontest: number, alternativa: number): Observable<any> {
+    return this.http.post(`${this.baseUrl}/respuesta`, { id_realizaciontest, alternativa });
   }
 }

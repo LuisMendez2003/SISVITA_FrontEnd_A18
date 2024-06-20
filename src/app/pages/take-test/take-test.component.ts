@@ -10,7 +10,7 @@ import { Alternativa } from '../../core/models/alternativa';
 import { SavetestService } from '../../core/services/savetest.service';
 import { RealizacionTest } from '../../core/models/realizacionTest';
 import { Respuesta } from '../../core/models/respuesta';
-import { AuthStateService } from '../../core/services/auth.service';
+import { AuthService, AuthStateService } from '../../core/services/auth.service';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -19,7 +19,7 @@ import { FormsModule } from '@angular/forms';
   imports: [RouterModule, TabsComponentstudent,CommonModule, FormsModule, HttpClientModule],
   templateUrl: './take-test.component.html',
   styleUrl: './take-test.component.scss',
-  providers: [ PreguntasService, TestService,SavetestService]
+  providers: [ PreguntasService, TestService,SavetestService, AuthService]
 })
 
 export class TakeTestComponent implements OnInit {
@@ -41,7 +41,19 @@ export class TakeTestComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.id_estudiante = this.authStateService.getUserId();
+
+    console.log('User ID stored:', this.authStateService.getUserId());
+    const userId = this.authStateService.getUserId()
+
+    this.authStateService.getStudentIdByUserId(userId).subscribe(
+      idEstudiante => {
+        this.id_estudiante = idEstudiante;
+        console.log('ID Estudiante:', this.id_estudiante);
+      },
+      error => {
+        console.error('Error al obtener ID de estudiante:', error);
+      }
+    )
     
     this.route.params.subscribe(params => {
       const id_test = +params['id'];
@@ -93,16 +105,19 @@ export class TakeTestComponent implements OnInit {
 
     const realizacionTest: RealizacionTest = {
       id_test: this.route.snapshot.params['id'], // Obtener el ID del test de la ruta
-      id_estudiante: this.authStateService.getUserId(),
+      id_estudiante: this.id_estudiante,
       fecha: new Date() // Fecha actual
     };
+
+    console.log(realizacionTest.id_test, realizacionTest.id_estudiante, realizacionTest.fecha);
 
     // Enviar el objeto RealizacionTest
     this.savetestService.realizacionTest(realizacionTest.id_test, realizacionTest.id_estudiante, realizacionTest.fecha).subscribe(
       (response) => {
         console.log('RealizacionTest guardado correctamente:', response);
         // Guardar las respuestas de las preguntas
-        this.guardarRespuestas(response.id_realizaciontest);
+        console.log('bromitahuevo',response.data.id_realizaciontest);
+        this.guardarRespuestas(response.data.id_realizaciontest);
       },
       (error) => {
         console.error('Error al guardar RealizacionTest:', error);
@@ -110,13 +125,14 @@ export class TakeTestComponent implements OnInit {
     );
   }
 
-  guardarRespuestas(id_realizacionTest: number): void {
+  guardarRespuestas(id_realizaciontest: number): void {
+    console.log('bromitahuevo en guardar',id_realizaciontest);
     Object.keys(this.respuestasSeleccionadas).forEach(preguntaId => {
       const idAlternativa = this.respuestasSeleccionadas[parseInt(preguntaId)];
 
       if (idAlternativa !== undefined) {
         const respuesta: Respuesta = {
-          id_realizacionTest: id_realizacionTest,
+          id_realizacionTest: id_realizaciontest,
           alternativa: idAlternativa
         };
 
@@ -131,4 +147,4 @@ export class TakeTestComponent implements OnInit {
       }
     });
   }
-} 
+}

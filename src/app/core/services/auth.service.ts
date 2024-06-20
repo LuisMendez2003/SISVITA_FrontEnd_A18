@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, catchError, map, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +21,10 @@ export class AuthService {
 })
 export class AuthStateService {
   private userId: string = '';
+  
+  private baseUrl = 'https://dsw-exposicionparcial-crud.onrender.com';
+
+  constructor(private http:HttpClient) { }
 
   setUserId(id: string): void {
     this.userId = id;
@@ -29,4 +33,17 @@ export class AuthStateService {
   getUserId(): string {
     return this.userId;
   }
+
+  getStudentIdByUserId(userId: string): Observable<string> {
+    const userIdNum = parseInt(userId, 10);
+    return this.http.get<{ data: { id_estudiante: string } }>(`${this.baseUrl}/estudiante/usuario/${userIdNum}`)
+      .pipe(
+        map(response => response.data.id_estudiante),
+        catchError(error => {
+          console.error('Error al obtener el id_estudiante:', error);
+          return of(''); // Devolver una cadena vacía si hay un error
+        })
+      );
+  }
 }
+
