@@ -8,6 +8,7 @@ import { Router, RouterModule } from '@angular/router';
   templateUrl: './tabsstudent.component.html',
   styleUrls: ['./tabsstudent.component.scss']
 })
+
 export class TabsComponentstudent {
   constructor(private router: Router) {}
 

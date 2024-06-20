@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Pregunta } from '../interfaces/pregunta';
-import { Alternativa } from '../interfaces/alternativa';
+import { Pregunta } from '../models/pregunta';
+import { Alternativa } from '../models/alternativa';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';

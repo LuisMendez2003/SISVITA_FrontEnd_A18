@@ -4,11 +4,13 @@ import { HomeComponent } from './pages/home/home.component';
 import { SigninComponent } from './pages/signin/signin.component';
 import { StudenttestComponent} from './pages/student-test/student-test.component';
 import { TakeTestComponent } from './pages/take-test/take-test.component';
+import { SpecialistTestComponent } from './pages/specialist-test/specialist-test.component';
 
 export const routes: Routes = [
     { path: "", component: HomeComponent },
     { path: "login", component: LoginComponent },
     { path: "signin", component: SigninComponent},
     { path: 'student-test', component: StudenttestComponent },
-    { path: "take-test/:id", component: TakeTestComponent}
+    { path: "take-test/:id", component: TakeTestComponent},
+    { path: "specialist-test", component: SpecialistTestComponent}
 ];

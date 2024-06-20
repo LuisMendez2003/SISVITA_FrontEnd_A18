@@ -3,13 +3,13 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { TabsComponentstudent } from '../../core/components/tabsstudent/tabsstudent.component';
 import { PreguntasService } from '../../core/services/preguntas.service';
 import { TestService } from '../../core/services/test.service';
-import { Pregunta } from '../../core/interfaces/pregunta';
+import { Pregunta } from '../../core/models/pregunta';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { Alternativa } from '../../core/interfaces/alternativa';
+import { Alternativa } from '../../core/models/alternativa';
 import { SavetestService } from '../../core/services/savetest.service';
-import { RealizacionTest } from '../../core/interfaces/realizacionTest';
-import { Respuesta } from '../../core/interfaces/respuesta';
+import { RealizacionTest } from '../../core/models/realizacionTest';
+import { Respuesta } from '../../core/models/respuesta';
 import { AuthStateService } from '../../core/services/auth.service';
 import { FormsModule } from '@angular/forms';
 
@@ -131,4 +131,4 @@ export class TakeTestComponent implements OnInit {
       }
     });
   }
-}
+} 
