@@ -1,0 +1,68 @@
+/* specialist-test.component.scss */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 2rem;
+    background-color: #fcf1f1;
+    box-sizing: border-box;
+  }
+  
+  .grid-container {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    box-sizing: border-box;
+  }
+  
+  .card {
+    flex: 1 1 20%;
+    max-width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    text-align: center;
+  }
+  
+  .card-header {
+    background-color: #007bff;
+    color: white;
+    padding: 1rem;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    width: 100%;
+  }
+  
+  .card-body {
+    padding: 1rem;
+    width: 100%;
+  }
+  
+  .card-footer {
+    padding: 1rem;
+    width: 100%;
+  }
+  
+  .btn-details {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1rem;
+    padding: 0.5rem 2rem;
+    background-color: #547AFF;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-details:hover {
+    background-color: #0056b3;
+  }
+  

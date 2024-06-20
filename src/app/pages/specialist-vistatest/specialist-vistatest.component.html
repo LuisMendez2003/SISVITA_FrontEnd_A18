@@ -1,0 +1,22 @@
+<!-- specialist-vistatest.component.html -->
+<app-tabsspecialist></app-tabsspecialist>
+
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <h3>Test N° {{ id_realizaciontest | number:'2.0' }}</h3>
+    </div>
+    <div class="card-body">
+      <ul>
+        <li *ngFor="let respuesta of respuestas">
+          <strong>Pregunta:</strong> {{ respuesta.pregunta?.texto }} <br>
+          <strong>Alternativa:</strong> {{ respuesta.alternativa }}
+        </li>
+      </ul>
+    </div>
+    <div class="card-footer">
+      <button class="btn" (click)="volver()">Volver</button>
+      <button class="btn" (click)="diagnosticar(id_realizaciontest)">Diagnosticar</button>
+    </div>
+  </div>
+</div>

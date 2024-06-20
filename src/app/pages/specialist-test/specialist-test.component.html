@@ -1,1 +1,24 @@
+<!-- specialist-test.component.html -->
 <app-tabsspecialist></app-tabsspecialist>
+
+<div class="container">
+  <div *ngIf="realizacionesTest && realizacionesTest.length" class="grid-container">
+    <div *ngFor="let realizacion of realizacionesTest" class="card">
+      <div class="card-header">
+        <h3>Test N° {{ realizacion.id_realizaciontest | number:'2.0' }}</h3>
+      </div>
+      <div class="card-body">
+        <p>Estudiante: {{ realizacion.id_estudiante }}</p>
+        <p>Fecha: {{ realizacion.fecha | date:'shortDate' }}</p>
+        <p>ID Test: {{ realizacion.id_test }}</p>
+        <p>Nombre del Test: {{ realizacion.test.nombre }}</p>
+      </div>
+      <div class="card-footer">
+        <button class="btn-details" (click)="viewRealizacionTest(realizacion.id_realizaciontest)">Ver detalles</button>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!realizacionesTest || !realizacionesTest.length">
+    No hay realizaciones de test disponibles.
+  </div>
+</div>
