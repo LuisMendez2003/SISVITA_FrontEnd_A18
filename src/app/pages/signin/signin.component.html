@@ -1,4 +1,45 @@
 <app-tabs></app-tabs>
-<a routerLink="">Home</a>
-<a routerLink="/login">Log In</a>
-<a routerLink="/signin">Sign In</a>
+
+<div class="container">
+  <div class="image">
+    <img src="images/Home.png" alt="Grupo de personas en círculo">
+  </div>
+  <div class="box">
+    <h1>Registro</h1>
+    <form (ngSubmit)="onSubmit($event)">
+      <div>
+        <label for="nombre">Nombres:</label>
+        <input type="text" id="nombre" [(ngModel)]="nombre" name="nombre" placeholder="Ingrese sus Nombres" required>
+      </div>
+      <div>
+        <label for="apellido">Apellidos:</label>
+        <input type="text" id="apellido" [(ngModel)]="apellido" name="apellido" placeholder="Ingrese sus Apellidos" required>
+      </div>
+      <div>
+        <label for="email">Correo Institucional:</label>
+        <input type="email" id="email" [(ngModel)]="email" name="email" placeholder="Ingrese su Correo Institucional" required>
+      </div>
+      <div>
+        <label for="direccion">Dirección:</label>
+        <input type="text" id="direccion" [(ngModel)]="direccion" name="direccion" placeholder="Ingrese su Dirección" required>
+      </div>
+      <div>
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" id="telefono" [(ngModel)]="telefono" name="telefono" placeholder="Ingrese su Teléfono" required>
+      </div>
+      <div>
+        <label for="ubigeo">Ubigeo:</label>
+        <input type="text" id="ubigeo" [(ngModel)]="ubigeo" name="ubigeo" placeholder="Ingrese su Ubigeo" required>
+      </div>
+      <div>
+        <label for="contrasena">Contraseña:</label>
+        <input type="password" id="contrasena" [(ngModel)]="contrasena" name="contrasena" placeholder="Ingrese su Contraseña" required>
+      </div>
+      <div>
+        <label for="confirmContrasena">Repetir contraseña:</label>
+        <input type="password" id="confirmContrasena" [(ngModel)]="confirmContrasena" name="confirmContrasena" placeholder="Repita su Contraseña" required>
+      </div>
+      <button type="submit">Registrarse</button>
+    </form>
+  </div>
+</div>

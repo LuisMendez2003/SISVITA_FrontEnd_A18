@@ -1,0 +1,113 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+.container {
+  display: flex;
+  justify-content: center; /* Centra el contenido horizontalmente */
+  align-items: flex-start; /* Alinea el contenido al principio verticalmente */
+  min-height: calc(100vh - 60px); /* Ajusta la altura mínima del contenedor principal restando la altura del menú azul */
+  background-color: #f8ebeb;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: auto; /* Permite el desplazamiento dentro del contenedor */
+}
+
+.image {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end; /* Alinea la imagen al final del contenedor */
+  align-items: center;
+  height: 100%;
+  margin-right: 5vw; /* Ajusta el margen derecho */
+}
+
+.image img {
+  max-width: 100%;
+  max-height: 80vh; /* Asegura que la imagen no supere el 80% de la altura de la ventana */
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid #333;
+}
+
+.box {
+  flex: 1;
+  max-width: 400px; /* Ancho máximo para el formulario */
+  width: 100%; /* Asegura que el formulario ocupe el 100% del contenedor */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra verticalmente el contenido del formulario */
+  align-items: center;
+  background-color: white;
+  border-radius: 15px;
+  margin-left: 5vw; /* Ajusta el margen izquierdo */
+  margin-top: 20px; /* Añade un margen superior para mover el panel hacia abajo */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 40px 20px;
+  box-sizing: border-box; /* Asegura que el padding no afecte las dimensiones */
+  overflow: hidden; /* Evita que el contenido desborde */
+}
+
+h1 {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 2em;
+  margin-bottom: 20px;
+  text-align: center; /* Centra el texto del título */
+}
+
+form {
+  width: 100%; /* Asegura que el formulario ocupe el 100% del contenedor */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: large;
+}
+
+form div {
+  width: 100%; /* Asegura que todos los divs dentro del formulario tengan el mismo ancho */
+}
+
+label {
+  display: block; /* Asegura que el label ocupe toda la línea */
+  margin-bottom: 5px;
+  margin-top: 15px;
+}
+
+input {
+  width: 100%; /* Asegura que todos los inputs ocupen el 100% del contenedor */
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box; /* Asegura que el padding no afecte las dimensiones */
+}
+
+button {
+  width: 100%; /* Asegura que el botón ocupe el 100% del contenedor */
+  padding: 10px;
+  background-color: #547AFF;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1em;
+  margin-top: 15px; /* Añade un margen superior al botón */
+}
+
+button:hover {
+  background-color: #357ae8;
+}
+
+.signup-link {
+  margin-top: 10px;
+  font-size: 0.9em;
+  color: black;
+  text-decoration: none;
+}
+
+.error-message {
+  color: red; /* Estilo para el mensaje de error */
+  margin-bottom: 15px;
+}

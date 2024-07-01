@@ -13,6 +13,10 @@ export class AuthService {
   login(email:string, contrasena: string): Observable<any>{
     return this.http.post(`${this.config.baseUrl}/usuarios/login`,{email,contrasena});
   }
+
+  register(data: any): Observable<any> {
+    return this.http.post(`${this.config.baseUrl}/usuario`, data);
+  }
 }
 
 @Injectable({
