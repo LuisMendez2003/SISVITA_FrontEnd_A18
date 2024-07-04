@@ -54,11 +54,11 @@ h1 {
   font-family: 'Fredoka', sans-serif;
   font-size: 2em;
   margin-bottom: 20px;
-  text-align: center; /* Centra el texto del título */
+  text-align: center; 
 }
 
 form {
-  width: 100%; /* Asegura que el formulario ocupe el 100% del contenedor */
+  width: 100%; 
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -66,26 +66,26 @@ form {
 }
 
 form div {
-  width: 100%; /* Asegura que todos los divs dentro del formulario tengan el mismo ancho */
+  width: 100%; 
 }
 
 label {
-  display: block; /* Asegura que el label ocupe toda la línea */
+  display: block;
   margin-bottom: 5px;
   margin-top: 15px;
 }
 
 input {
-  width: 100%; /* Asegura que todos los inputs ocupen el 100% del contenedor */
+  width: 100%; 
   padding: 10px;
   margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  box-sizing: border-box; /* Asegura que el padding no afecte las dimensiones */
+  box-sizing: border-box; 
 }
 
 button {
-  width: 100%; /* Asegura que el botón ocupe el 100% del contenedor */
+  width: 100%; 
   padding: 10px;
   background-color: #547AFF;
   color: white;
@@ -93,7 +93,7 @@ button {
   border-radius: 10px;
   cursor: pointer;
   font-size: 1em;
-  margin-top: 15px; /* Añade un margen superior al botón */
+  margin-top: 15px; 
 }
 
 button:hover {

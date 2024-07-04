@@ -18,7 +18,7 @@ export class SpecialistVistatestComponent implements OnInit {
   id_realizaciontest: number = 0; // Inicializar con un valor predeterminado
 
   constructor(private router: Router, private route: ActivatedRoute, private respuestaService: RespuestaService) {}
-
+ 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.id_realizaciontest = +params['id']; // Obtener el id_realizaciontest de la ruta

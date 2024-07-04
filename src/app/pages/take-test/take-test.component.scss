@@ -2,57 +2,58 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 81.5vh;
+    min-height: 100vh; /* Asegura que el contenedor ocupe al menos el 100% del viewport height */
+    padding: 10px; /* Asegura que haya espacio en los lados */
 }
 
 .box {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;  /* Alineación de los elementos de arriba hacia abajo */
+    justify-content: center; /* Centrar los elementos verticalmente */
     align-items: center;
 
-    min-height: 60vh; /* La misma altura que la imagen */
-    width: 40vw; /* Ajustar el ancho del box según tus necesidades */
+    width: 100%; /* Ajustar el ancho del box según tus necesidades */
+    max-width: 600px; /* Ancho máximo para evitar que sea demasiado grande en pantallas grandes */
     
     background-color: white; /* Color de fondo del box */
     border-radius: 15px; /* Esquinas redondeadas */
-    margin: 20px;
+    margin: 20px; /* Reducir margen superior e inferior */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    
-
 }
 
 h1 {
     font-family: 'Fredoka', sans-serif;
-    font-size: 2.5em;
-    margin-top: 10px;
-    margin-bottom: 20px;
+    font-size: 2em; /* Reducir el tamaño de la fuente */
+    margin: 10px 0; /* Reducir márgenes */
+    text-align: center; /* Centrar el texto */
 }
 
 form {
     display: flex;
     flex-direction: column;
-    font-size: large;
-    flex: 1; /* Para que ocupe todo el espacio disponible verticalmente */
+    font-size: medium; /* Reducir el tamaño de la fuente */
+    width: 100%;
+    padding: 10px; /* Añadir padding para evitar que los elementos toquen los bordes */
 }
 
 .form-group {
-    margin-bottom: 20px; /* Espaciado entre grupos de elementos */
+    margin-bottom: 15px; /* Reducir el espaciado entre grupos de elementos */
+    width: 100%;
 }
 
 label {
     font-family: 'Inter', sans-serif;
     align-self: flex-start;
-    margin-bottom: 10px;
-    margin-top: 20px;
+    margin-bottom: 5px; /* Reducir el margen inferior */
+    margin-top: 10px; /* Reducir el margen superior */
 }
 
 .select {
     font-family: 'Fredoka', sans-serif;
-    margin: 10px;
+    margin: 5px 0; /* Reducir los márgenes verticales */
     width: 100%; /* Ancho completo del select */
-    padding: 10px; /* Espaciado interno */
+    padding: 8px; /* Reducir el espaciado interno */
     border: 1px solid #ccc; /* Borde */
     border-radius: 5px; /* Esquinas redondeadas */
 }
@@ -67,8 +68,8 @@ button {
     border: none; /* Borde */
     border-radius: 10px; /* Esquinas redondeadas */
     cursor: pointer; /* Cursor */
-    font-size: large; /* Tamaño de fuente */
-    margin-top: 50px; /* Alinear al final del contenedor */
+    font-size: medium; /* Reducir el tamaño de la fuente */
+    margin-top: 30px; /* Reducir el margen superior */
 }
 
 button:hover {
@@ -78,4 +79,19 @@ button:hover {
 button:disabled {
     background-color: #ccc; /* Color de fondo cuando está deshabilitado */
     cursor: not-allowed; /* Cursor cuando está deshabilitado */
+}
+
+/* Media queries para pantallas pequeñas */
+@media (max-width: 600px) {
+    .box {
+        width: 90%; /* Ancho casi completo en pantallas pequeñas */
+    }
+
+    h1 {
+        font-size: 1.5em; /* Reducir tamaño de la fuente en pantallas pequeñas */
+    }
+
+    .select, button {
+        font-size: small; /* Reducir tamaño de la fuente en pantallas pequeñas */
+    }
 }
