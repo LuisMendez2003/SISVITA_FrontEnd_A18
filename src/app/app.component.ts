@@ -10,8 +10,8 @@ import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
-  standalone: true, //IMPORTANTE COLOCAR QUE ES STANDALON
-  imports: [RouterOutlet, CommonModule, TabsComponent, HeaderComponent,FormsModule], //IMPORTAR EL COMMONMODULE Y EL ROUTER OUTLET y los standalones
+  standalone: true,
+  imports: [RouterOutlet, CommonModule, TabsComponent, HeaderComponent,FormsModule],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   providers: [AuthStateService]

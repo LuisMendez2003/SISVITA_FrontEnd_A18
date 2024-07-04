@@ -4,6 +4,7 @@ import { TabsComponent } from '../../core/components/tabs/tabs.component';
 import { AuthService } from '../../core/services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { UbigeoService } from '../../core/services/ubigeo.service';
 
 @Component({
   selector: 'app-signin',
@@ -11,7 +12,7 @@ import { FormsModule } from '@angular/forms';
   imports: [RouterModule, TabsComponent, HttpClientModule, FormsModule],
   templateUrl: './signin.component.html',
   styleUrls: ['./signin.component.scss'],
-  providers: [AuthService]
+  providers: [AuthService, UbigeoService]
 })
 export class SigninComponent implements OnInit {
 
@@ -26,10 +27,19 @@ export class SigninComponent implements OnInit {
   rol: string = 'Estudiante'; 
   ubigeo: string = '';
 
-  constructor(private authService: AuthService, private router: Router) {}
+  selectedDepartamento: number = 0;
+  selectedProvincia: number = 0;
+  selectedDistrito: number = 0;
+
+  departamentos: any[] = [];
+  provincias: any[] = [];
+  distritos: any[] = [];
+
+  constructor(private authService: AuthService, private router: Router, private ubigeoService: UbigeoService) {}
 
   ngOnInit() {
     this.setFechaRegistro();
+    this.loadDepartamentos();
   }
 
   setFechaRegistro() {
@@ -43,6 +53,49 @@ export class SigninComponent implements OnInit {
 
     this.fecha_registro = `${yyyy}-${mmString}-${ddString}`;
   }
+
+  loadDepartamentos() {
+    this.ubigeoService.getDepartamentos().subscribe(
+      (data) => {
+        this.departamentos = data;
+      },
+      (error) => {
+        console.error('Error al cargar departamentos', error);
+      }
+    );
+  }
+
+  onDepartamentoChange() {
+    if (this.selectedDepartamento !== 0) {
+      this.ubigeoService.getProvinciasByDepartamento(this.selectedDepartamento).subscribe(
+        (data) => {
+          this.provincias = data;
+        },
+        (error) => {
+          console.error('Error al cargar provincias', error);
+        }
+      );
+    } else {
+      this.provincias = [];
+      this.distritos = [];
+    }
+  }
+
+  onProvinciaChange() {
+    if (this.selectedProvincia !== 0) {
+      this.ubigeoService.getDistritosByProvincia(this.selectedProvincia).subscribe(
+        (data) => {
+          this.distritos = data;
+        },
+        (error) => {
+          console.error('Error al cargar distritos', error);
+        }
+      );
+    } else {
+      this.distritos = [];
+    }
+  }
+ 
 
   onSubmit(event: Event) {
     event.preventDefault();

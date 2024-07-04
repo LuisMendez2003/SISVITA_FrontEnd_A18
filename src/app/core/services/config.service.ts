@@ -4,6 +4,6 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ConfigService {
-  baseUrl = 'https://dsw-exposicionparcial-crud.onrender.com';
-  //baseUrl = 'http://localhost:5000'
+  //baseUrl = 'https://dsw-exposicionparcial-crud.onrender.com';
+  baseUrl = 'http://localhost:5000'
 }
