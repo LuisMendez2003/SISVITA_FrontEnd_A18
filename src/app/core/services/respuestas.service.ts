@@ -17,5 +17,7 @@ export class RespuestaService {
   getPreguntasAlternativasByTestId(id_test: number): Observable<any>{
     return this.http.get(`${this.config.baseUrl}/test/${id_test}/preguntas-alternativas`);
   }
-
+  getRespuestasByRealizacionTest(id_realizaciontest: number): Observable<any> {
+    return this.http.get<any>(`${this.config.baseUrl}/realizaciontest/${id_realizaciontest}/respuestas`);
+  }
 }

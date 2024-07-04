@@ -9,8 +9,8 @@
     <div class="card-body">
       <ul>
         <li *ngFor="let respuesta of respuestas">
-          <strong>Pregunta:</strong> {{ respuesta.pregunta?.texto }} <br>
-          <strong>Alternativa:</strong> {{ respuesta.alternativa }}
+          <strong>Pregunta:</strong> {{ respuesta.alternativa_relacionada.pregunta.texto }} <br>
+          <strong>Alternativa:</strong> {{ respuesta.alternativa_relacionada.texto }}
         </li> 
       </ul>
     </div>
