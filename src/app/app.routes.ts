@@ -7,6 +7,8 @@ import { TakeTestComponent } from './pages/take-test/take-test.component';
 import { SpecialistTestComponent } from './pages/specialist-test/specialist-test.component';
 import { SpecialistVistatestComponent } from './pages/specialist-vistatest/specialist-vistatest.component';
 import { SpecialistTestdiagnosticarComponent } from './pages/specialist-testdiagnosticar/specialist-testdiagnosticar.component';
+import { StudentTestverComponent } from './pages/student-testver/student-testver.component';
+import { HeatmapComponent } from './pages/heatmap/heatmap.component';
 
 export const routes: Routes = [
     { path: "", component: HomeComponent },
@@ -16,5 +18,7 @@ export const routes: Routes = [
     { path: "take-test/:id", component: TakeTestComponent},
     { path: "specialist-test", component: SpecialistTestComponent},
     { path: 'specialist-vistatest/:id', component: SpecialistVistatestComponent },
-    { path: 'specialist-testdiagnosticar/:id',component: SpecialistTestdiagnosticarComponent}
+    { path: 'specialist-testdiagnosticar/:id',component: SpecialistTestdiagnosticarComponent},
+    { path: "student-testver", component: StudentTestverComponent},
+    { path: "heatmap", component: HeatmapComponent}
 ];

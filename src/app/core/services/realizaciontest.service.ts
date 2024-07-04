@@ -13,4 +13,8 @@ export class RealizacionTestService {
   getRealizacionesTest(): Observable<any> {
     return this.http.get<any>(`${this.config.baseUrl}/realizaciontests`);
   }
+
+  getRealizacionesTestByStudent(studentId: number):Observable<any>{
+    return this.http.get<any>(`${this.config.baseUrl}/estudiante/${studentId}/realizaciones-test`)
+  }
 }

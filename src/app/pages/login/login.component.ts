@@ -31,14 +31,18 @@ export class LoginComponent {
         this.http.get<{ data: User[] }>(`https://dsw-exposicionparcial-crud.onrender.com/usuarios?email=${this.email}`)
           .subscribe(
             (userResponse) => {
+              console.log('Respuesta del servidor:', userResponse);
                             
               // Filtrar el usuario correcto
               const user = userResponse.data.find(u => u.email === this.email);
               
               if (user) {
-                               
+                console.log('Usuario completo:', user);
+                
                 this.authStateService.setUserId(user.id_usuario.toString());
-    
+  
+                console.log('User ID stored:', this.authStateService.getUserId());
+  
                 if (user.rol === 'Estudiante') {
                   this.router.navigate(['/student-test']);
                 } else if (user.rol === 'Especialista') {

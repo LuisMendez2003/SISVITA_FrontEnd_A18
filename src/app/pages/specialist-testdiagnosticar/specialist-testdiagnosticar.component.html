@@ -21,10 +21,12 @@
             {{ respuestas[0]?.realizacionTest?.nivel }}
           </span>
         </p>
+        <p><strong>Observacion:</strong> {{ respuestas[0]?.realizacionTest?.observaciones }}</p>
       </div>
-      <div class="treatment">
-        <h4>Tratamiento:</h4>
-        <textarea [(ngModel)]="tratamiento"></textarea>
+      <div class="observaciones">
+        <h4>Observaciones:</h4>
+        <textarea [(ngModel)]="observaciones"></textarea>
+        <button class="btn" (click)="actualizarObservaciones()">Guardar Observaciones</button>
       </div>
     </div>
   </div>

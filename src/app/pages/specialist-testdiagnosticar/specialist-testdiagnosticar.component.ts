@@ -19,6 +19,7 @@ export class SpecialistTestdiagnosticarComponent implements OnInit {
   id_realizaciontest: number = 0; // Inicializar con un valor predeterminado
   tratamiento: string = '';
   solicitarCita: string = '';
+  observaciones: string = '';
 
   constructor(private route: ActivatedRoute, private router: Router, private respuestaService: RespuestaService, private http: HttpClient) {}
 
@@ -26,7 +27,32 @@ export class SpecialistTestdiagnosticarComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.id_realizaciontest = +params['id']; // Obtener el id_realizaciontest de la ruta
       this.loadRespuestas();
+      this.loadObservaciones();
     });
+  }
+
+  loadObservaciones(): void{
+    this.http.get<any>(`http://localhost:5000/realizaciontest/${this.id_realizaciontest}`).subscribe(
+      (response) => {
+        this.observaciones = response.data.observaciones;
+      },
+      (error) => {
+        console.error('Error al cargar observaciones:', error);
+      }
+    );
+  }
+
+  actualizarObservaciones(): void {
+    this.http.patch(`http://localhost:5000/realizaciontest/${this.id_realizaciontest}/observaciones`, { observaciones: this.observaciones })
+      .subscribe(
+        (response) => {
+          console.log('Observaciones actualizadas correctamente.');
+          // Actualizar localmente si es necesario
+        },
+        (error) => {
+          console.error('Error al actualizar observaciones:', error);
+        }
+      );
   }
 
   loadRespuestas(): void {
