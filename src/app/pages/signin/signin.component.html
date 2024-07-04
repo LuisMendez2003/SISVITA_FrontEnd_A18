@@ -56,7 +56,7 @@
       <div>
         <label for="distrito">Distrito:</label>
         <select id="distrito" [(ngModel)]="selectedDistrito" name="distrito">
-          <option *ngFor="let distrito of distritos" [value]="distrito.id">{{ distrito.nombre }}</option>
+          <option *ngFor="let distrito of distritos" [ngValue]="distrito">{{ distrito.nombre }}</option>
         </select>
       </div>
       

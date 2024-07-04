@@ -5,11 +5,12 @@ import { AuthService } from '../../core/services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { UbigeoService } from '../../core/services/ubigeo.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-signin',
   standalone: true,
-  imports: [RouterModule, TabsComponent, HttpClientModule, FormsModule],
+  imports: [RouterModule, TabsComponent, HttpClientModule, FormsModule, CommonModule],
   templateUrl: './signin.component.html',
   styleUrls: ['./signin.component.scss'],
   providers: [AuthService, UbigeoService]
@@ -29,11 +30,12 @@ export class SigninComponent implements OnInit {
 
   selectedDepartamento: number = 0;
   selectedProvincia: number = 0;
-  selectedDistrito: number = 0;
+  selectedDistrito: any = {};
 
   departamentos: any[] = [];
   provincias: any[] = [];
   distritos: any[] = [];
+  
 
   constructor(private authService: AuthService, private router: Router, private ubigeoService: UbigeoService) {}
 
@@ -98,9 +100,11 @@ export class SigninComponent implements OnInit {
  
 
   onSubmit(event: Event) {
+    console.log(this.selectedDistrito.ubigeo);
+    
     event.preventDefault();
 
-    if (!this.nombre || !this.apellido || !this.email || !this.contrasena || !this.confirmContrasena || !this.telefono || !this.direccion || !this.ubigeo) {
+    if (!this.nombre || !this.apellido || !this.email || !this.contrasena || !this.confirmContrasena || !this.telefono || !this.direccion) {
       alert('Por favor, complete todos los campos'); 
       return;
     }
@@ -120,7 +124,7 @@ export class SigninComponent implements OnInit {
       direccion: this.direccion,
       fecha_registro: this.fecha_registro,
       rol: this.rol,
-      ubigeo: this.ubigeo
+      ubigeo: this.selectedDistrito.ubigeo
     };
 
     this.authService.register(userData).subscribe(

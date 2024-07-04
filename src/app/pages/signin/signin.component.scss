@@ -1,7 +1,7 @@
 body, html {
   height: 100%;
   margin: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Fredoka', sans-serif;
 }
 
 .container {
@@ -33,6 +33,8 @@ body, html {
 }
 
 .box {
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 600;
   flex: 1;
   max-width: 400px; /* Ancho máximo para el formulario */
   width: 100%; /* Asegura que el formulario ocupe el 100% del contenedor */
@@ -85,19 +87,21 @@ input {
 }
 
 button {
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 600;
   width: 100%; 
   padding: 10px;
   background-color: #547AFF;
   color: white;
   border: none;
-  border-radius: 10px;
+  border-radius: 15px;
   cursor: pointer;
-  font-size: 1em;
+  font-size: 1.25em;
   margin-top: 15px; 
 }
 
 button:hover {
-  background-color: #357ae8;
+  background-color: #6182f8;
 }
 
 .signup-link {
