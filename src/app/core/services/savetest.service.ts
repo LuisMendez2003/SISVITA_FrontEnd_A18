@@ -17,4 +17,8 @@ export class SavetestService {
   respuesta(id_realizaciontest: number, alternativa: number): Observable<any> {
     return this.http.post(`${this.config.baseUrl}/respuesta`, { id_realizaciontest, alternativa });
   }
+
+  actualizarPuntaje(id_realizaciontest: number): Observable<any> {
+    return this.http.post(`${this.config.baseUrl}/actualizar_puntaje`, { id_realizaciontest });
+  }
 }

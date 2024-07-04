@@ -12,6 +12,8 @@ import { RealizacionTest } from '../../core/models/realizacionTest';
 import { Respuesta } from '../../core/models/respuesta';
 import { AuthService, AuthStateService } from '../../core/services/auth.service';
 import { FormsModule } from '@angular/forms';
+import { forkJoin } from 'rxjs';
+
 
 @Component({
   selector: 'app-take-test',
@@ -122,7 +124,7 @@ export class TakeTestComponent implements OnInit {
   }
 
   guardarRespuestas(id_realizaciontest: number): void {
-    Object.keys(this.respuestasSeleccionadas).forEach(preguntaId => {
+    const respuestasObservables = Object.keys(this.respuestasSeleccionadas).map(preguntaId => {
       const idAlternativa = this.respuestasSeleccionadas[parseInt(preguntaId)];
 
       if (idAlternativa !== undefined) {
@@ -131,17 +133,36 @@ export class TakeTestComponent implements OnInit {
           alternativa: idAlternativa
         };
 
-        this.savetestService.respuesta(respuesta.id_realizacionTest, respuesta.alternativa).subscribe(
-          (response) => {
-            console.log('Respuesta guardada correctamente:', response);
-          },
-          (error) => {
-            console.error('Error al guardar Respuesta:', error);
-          }
-        );
+        return this.savetestService.respuesta(respuesta.id_realizacionTest, respuesta.alternativa);
+      } else {
+        return null;
       }
-    });
+    }).filter(obs => obs !== null);
 
-    this.router.navigate(['/student-test']);
+    if (respuestasObservables.length > 0) {
+      forkJoin(respuestasObservables).subscribe(
+        () => {
+          console.log('Todas las respuestas guardadas correctamente.');
+          this.actualizarPuntaje(id_realizaciontest);
+        },
+        (error) => {
+          console.error('Error al guardar respuestas:', error);
+        }
+      );
+    } else {
+      this.router.navigate(['/student-test']);
+    }
+  }
+
+  actualizarPuntaje(id_realizaciontest: number): void {
+    this.savetestService.actualizarPuntaje(id_realizaciontest).subscribe(
+      (response) => {
+        console.log('Puntaje actualizado correctamente:', response);
+        this.router.navigate(['/student-test']);
+      },
+      (error) => {
+        console.error('Error al actualizar puntaje:', error);
+      }
+    );
   }
 }
