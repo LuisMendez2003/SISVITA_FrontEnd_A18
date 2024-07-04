@@ -34,7 +34,7 @@ export class SpecialistVistatestComponent implements OnInit {
         } else {
           console.error('Respuesta del servicio no tiene el formato esperado:', response);
         }
-        console.log('Respuestas obtenidas:', this.respuestas);
+        
       },
       (error) => {
         console.error('Error al obtener las respuestas:', error);

@@ -53,7 +53,7 @@ export class SpecialistTestdiagnosticarComponent implements OnInit {
   finalizar(): void {
     if (this.tratamiento) {
       // Lógica para finalizar, como guardar los datos ingresados
-      console.log('Tratamiento:', this.tratamiento);
+      
       if(this.solicitarCita === 'si'){
         this.enviarEmail();
       }

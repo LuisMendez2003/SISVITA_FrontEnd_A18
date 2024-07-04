@@ -93,8 +93,7 @@ export class TakeTestComponent implements OnInit {
   loadTestName(id_test: number): void {
     this.testService.getTestById(id_test).subscribe(
       (response) => {
-        this.nombreTest = response.nombre; // Acceder nombre
-        console.log('Nombre del test:', this.nombreTest);
+        this.nombreTest = response.nombre; // Acceder nombre       
       },
       (error) => {
         console.error('Error al obtener el nombre del test:', error);
