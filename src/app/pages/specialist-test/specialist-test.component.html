@@ -16,9 +16,9 @@
         <p>
           <strong class="level-text">Nivel:</strong>
           <span [ngClass]="{
-            'level-green': realizacion.nivel === 'Normal' || 'Estrés Bajo' || 'Ansiedad Normal',
-            'level-yellow': realizacion.nivel === 'Ligeramente deprimido' || 'Moderadamente deprimido' || 'Estrés Medio' || 'Ansiedad Moderada',
-            'level-red': realizacion.nivel === 'Severamente deprimido' || 'Estrés Alto' || 'Ansiedad Severa' || 'Ansiedad Maxima'
+            'level-green': realizacion.nivel === 'Normal' || realizacion.nivel === 'Estrés Bajo' || realizacion.nivel === 'Ansiedad Normal',
+            'level-yellow': realizacion.nivel === 'Ligeramente deprimido' || realizacion.nivel === 'Moderadamente deprimido' || realizacion.nivel === 'Estrés Medio' || realizacion.nivel === 'Ansiedad Moderada',
+            'level-red': realizacion.nivel === 'Severamente deprimido' || realizacion.nivel === 'Estrés Alto' || realizacion.nivel === 'Ansiedad Severa' || realizacion.nivel === 'Ansiedad Maxima'
           }">
             {{ realizacion.nivel }}
           </span>

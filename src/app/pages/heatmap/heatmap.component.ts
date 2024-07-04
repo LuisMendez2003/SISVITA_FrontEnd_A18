@@ -20,7 +20,7 @@ export class HeatmapComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    this.http.get<any>('http://localhost:5000//heatmap-data').subscribe(
+    this.http.get<any>('https://dsw-exposicionparcial-crud.onrender.com/heatmap-data').subscribe(
       (response) => {
         if (response && response.data) {
           this.heatmapData = response.data;

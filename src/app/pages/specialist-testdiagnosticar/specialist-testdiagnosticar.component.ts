@@ -32,7 +32,7 @@ export class SpecialistTestdiagnosticarComponent implements OnInit {
   }
 
   loadObservaciones(): void{
-    this.http.get<any>(`http://localhost:5000/realizaciontest/${this.id_realizaciontest}`).subscribe(
+    this.http.get<any>(`https://dsw-exposicionparcial-crud.onrender.com/realizaciontest/${this.id_realizaciontest}`).subscribe(
       (response) => {
         this.observaciones = response.data.observaciones;
       },
@@ -43,7 +43,7 @@ export class SpecialistTestdiagnosticarComponent implements OnInit {
   }
 
   actualizarObservaciones(): void {
-    this.http.patch(`http://localhost:5000/realizaciontest/${this.id_realizaciontest}/observaciones`, { observaciones: this.observaciones })
+    this.http.patch(`https://dsw-exposicionparcial-crud.onrender.com/realizaciontest/${this.id_realizaciontest}/observaciones`, { observaciones: this.observaciones })
       .subscribe(
         (response) => {
           console.log('Observaciones actualizadas correctamente.');
